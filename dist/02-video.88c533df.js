@@ -3099,7 +3099,7 @@ var _player = _interopRequireDefault(require("../../node_modules/@vimeo/player")
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var throttle = require('lodash.throttle');
+let throttle = require('lodash.throttle');
 
 const iframe = document.querySelector('iframe');
 const player = new Vimeo.Player(iframe);
@@ -3142,7 +3142,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62424" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53001" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
