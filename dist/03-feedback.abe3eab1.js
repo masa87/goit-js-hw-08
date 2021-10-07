@@ -577,17 +577,27 @@ const checkStorage = () => {
 
 checkStorage();
 
+const validateEmail = email => {
+  const regex = /\S+@\S+\.\S+/;
+  return regex.test(email);
+};
+
 const submitForm = e => {
   e.preventDefault();
   const obj = {
     email: email.value,
     message: message.value
   };
-  localStorage.setItem('feedback-form-state', JSON.stringify(obj));
-  console.log(obj);
-  localStorage.clear();
-  email.value = '';
-  message.value = '';
+
+  if (validateEmail(email.value) === true) {
+    localStorage.setItem('feedback-form-state', JSON.stringify(obj));
+    console.log(obj);
+    localStorage.clear();
+    email.value = '';
+    message.value = '';
+  } else {
+    alert('Please type in correct email address: example@go.com');
+  }
 };
 
 email.addEventListener('input', throttle(e => {
@@ -625,7 +635,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62424" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59733" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
